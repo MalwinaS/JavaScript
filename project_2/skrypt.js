@@ -6,25 +6,26 @@ const p = document.querySelector('p');
 getRandomColor = () => {
     let randomColor = Math.floor(Math.random()*16777215).toString(16);
     p.style.color = "#" + randomColor;
+    console.log(randomColor)
 }
   
 color.addEventListener('click', getRandomColor);
 
 
-
+let fontSize = 36; 
 changeSizeUp = () => {
-    let fontSizee = 36; 
-    p.style.fontSize = fontSizee + 'px';
-    fontSizee++   
+    fontSize += 5; 
+    p.style.fontSize = fontSize + 'px';  
     
 }
   
 sizeUp.addEventListener('click', changeSizeUp);
 
 changeSizeDown = () => {
-    for (let i = 36; i >= 10; i--) {
-        p.style.fontSize = `${i}px`;
-    }
+    if (fontSize <= 21) return
+
+    fontSize -= 5;
+    p.style.fontSize = fontSize + 'px';  
 }
   
 sizeDown.addEventListener('click', changeSizeDown);
