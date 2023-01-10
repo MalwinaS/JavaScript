@@ -262,17 +262,17 @@
 // const divcasspar = divcass.querySelector('#test');
 // console.log(divcasspar);
 
-const lista = document.createElement('ul');
-const number = 10;
-document.body.append(lista);
+// const lista = document.createElement('ul');
+// const number = 10;
+// document.body.append(lista);
 
-for (let i = 1; i <= number; i++) {
-const liItem = document.createElement('li');
-liItem.textContent = i;
-lista.appendChild(liItem);
-}
+// for (let i = 1; i <= number; i++) {
+// const liItem = document.createElement('li');
+// liItem.textContent = i;
+// lista.appendChild(liItem);
+// }
 
-const lastItem = lista.lastChild;
-lastItem.textContent = 'Jestem ostatnim elementem';
-lastItem.style.color = 'red';
-lastItem.add('test');
+// const lastItem = lista.lastChild;
+// lastItem.textContent = 'Jestem ostatnim elementem';
+// lastItem.style.color = 'red';
+// lastItem.add('test');
