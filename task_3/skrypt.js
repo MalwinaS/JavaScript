@@ -22,5 +22,4 @@ Food.prototype.show = function() {
 
 btnOne.addEventListener('click', () => dishOne.show());
 btnTwo.addEventListener('click', () => dishTwo.show());
-btnThree.addEventListener('click', () => dishThree.show());
-// dishOne.show();
+btnThree.addEventListener('click', () => dishThree.show()); 
