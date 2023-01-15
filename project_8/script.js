@@ -17,10 +17,43 @@ const getWeather = () => {
 
     axios.get(URL).then(res =>  {
         cityName.textContent = res.data.name;
+        const status = Object.assign({}, ...res.data.weather)
+
+        warning.textContent = '';
+        input.value = '';
+
+        if (status.id >= 200 && status.id < 300) {
+            photo.setAttribute('src', 'img/thunderstorm.png');
+        } else if (status.id >= 300 && status.id < 400) {
+            photo.setAttribute('src', 'img/drizzle.png');
+        } else if (status.id >= 500 && status.id < 600) {
+            photo.setAttribute('src', 'img/rain.png');
+        } else if (status.id >= 600 && status.id < 700) {
+            photo.setAttribute('src', 'img/ice.png');
+        } else if (status.id >= 701 && status.id < 800) {
+            photo.setAttribute('src', 'img/fog.png');
+        } else if (status.id === 800) {
+            photo.setAttribute('src', 'img/sun.png');
+        } else if (status.id > 800 && status.id < 900) {
+            photo.setAttribute('src', 'img/cloud.png');
+        } else {
+            photo.setAttribute('src', 'img/unknown.png');
+        }
 
         temperature.textContent = Math.floor(res.data.main.temp) + '℃';
         humidity.textContent = res.data.main.humidity + `%`;
+        weather.textContent = status.main;
+
     })
+    .catch(() => warning.textContent = "Wpisz poprawna nazwe miasta");
+}
+    const enterCheck = e => {
+        if (e.key === 'Enter') {
+        getWeather();
+    }
 }
 
+
+input.addEventListener('keyup', enterCheck);
 getWeather();
+button.addEventListener('click', getWeather);
