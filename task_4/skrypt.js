@@ -14,16 +14,19 @@ btn.addEventListener('click', () => {
 
 
 // TO DO
-// const btnTwo = document.querySelector('.btn-two');
-// const p = document.querySelector('p');
+const btnTwo = document.querySelector('.btn-two');
+const fact = document.querySelector('.facts');
 
-// const URL2 = "https://meowfacts.herokuapp.com/"
+const URL2 = "https://meowfacts.herokuapp.com/"
 
-// btnTwo.addEventListener('click', () => {
-//     fetch(URL2)
-//     .then(res => res.json())
-//     .then(data => data)
-//     const {data, main: { title }} = data; 
-//     p.textContent = data;
-//  })
+btnTwo.addEventListener('click', () => {
+    fetch(URL2)
+    .then(res => res.json())
+    .then(data => {
+        
+        let arr =  JSON.parse(JSON.stringify(data))
+        let arrFacts = (arr.data)
+        fact.textContent = arrFacts;
+    })
+})
 
